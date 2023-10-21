@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EvorodApp.Controllers;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +14,21 @@ namespace PlayerUI
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private readonly Form2 _form2;
+
+        public Form1(Form2 form)
         {
+            _form2 = form;
+            Application.EnableVisualStyles();
             InitializeComponent();
             hideSubMenu();
         }
 
         private void hideSubMenu()
         {
-            panelMediaSubMenu.Visible = false;
-            panelPlaylistSubMenu.Visible = false;
-            panelToolsSubMenu.Visible = false;
+            //panelMediaSubMenu.Visible = false;
+            //panelPlaylistSubMenu.Visible = false;
+            //panelToolsSubMenu.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -38,17 +44,14 @@ namespace PlayerUI
 
         private void btnMedia_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelMediaSubMenu);
+            //showSubMenu(panelMediaSubMenu);
         }
 
         #region MediaSubMenu
         private void button2_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form2());
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+                openChildForm(_form2);
+                hideSubMenu();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -78,7 +81,7 @@ namespace PlayerUI
 
         private void btnPlaylist_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelPlaylistSubMenu);
+            //showSubMenu(panelPlaylistSubMenu);
         }
 
         #region PlayListManagemetSubMenu
@@ -117,7 +120,7 @@ namespace PlayerUI
 
         private void btnTools_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelToolsSubMenu);
+            //showSubMenu(panelToolsSubMenu);
         }
         #region ToolsSubMenu
         private void button13_Click(object sender, EventArgs e)
@@ -155,11 +158,8 @@ namespace PlayerUI
 
         private void btnEqualizer_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form3());
-            //..
-            //your codes
-            //..
-            hideSubMenu();
+                openChildForm(_form2);
+                hideSubMenu();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -186,6 +186,16 @@ namespace PlayerUI
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void panelChildForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

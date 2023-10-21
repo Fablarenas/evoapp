@@ -1,0 +1,17 @@
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Transversal.deps.json
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Transversal.dll
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Transversal.pdb
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Controllers.dll
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Models.dll
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Controllers.pdb
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\bin\Debug\net6.0\Models.pdb
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.csproj.AssemblyReference.cache
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.AssemblyInfoInputs.cache
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.AssemblyInfo.cs
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.csproj.CoreCompileInputs.cache
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.csproj.CopyComplete
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.dll
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\refint\Transversal.dll
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\Transversal.pdb
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\Transversal\obj\Debug\net6.0\ref\Transversal.dll

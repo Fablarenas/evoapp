@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerUI", "PlayerUI\PlayerUI.csproj", "{B265B459-B4B6-44BC-BDB1-B401C58DC48F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controllers", "Controllers\Controllers.csproj", "{4D3C0EBF-A6DC-4D58-8BD1-577EC0AD6A7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{A3E306AF-A2CC-4CD0-88C7-031B1B7D56EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{B265B459-B4B6-44BC-BDB1-B401C58DC48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B265B459-B4B6-44BC-BDB1-B401C58DC48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B265B459-B4B6-44BC-BDB1-B401C58DC48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3C0EBF-A6DC-4D58-8BD1-577EC0AD6A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3C0EBF-A6DC-4D58-8BD1-577EC0AD6A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3C0EBF-A6DC-4D58-8BD1-577EC0AD6A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3C0EBF-A6DC-4D58-8BD1-577EC0AD6A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3E306AF-A2CC-4CD0-88C7-031B1B7D56EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3E306AF-A2CC-4CD0-88C7-031B1B7D56EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3E306AF-A2CC-4CD0-88C7-031B1B7D56EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3E306AF-A2CC-4CD0-88C7-031B1B7D56EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42DF6C8D-9BE8-47A3-A620-B1188831D69E}
 	EndGlobalSection
 EndGlobal

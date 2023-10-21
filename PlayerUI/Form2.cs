@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvorodApp.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,27 @@ namespace PlayerUI
 {
     public partial class Form2 : Form
     {
-        public Form2()
+        private readonly GroupsController _groupsController;
+        public Form2(GroupsController groupsController)
         {
+            _groupsController = groupsController;
             InitializeComponent();
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = _groupsController.GetGroupsAsync();
         }
     }
 }
