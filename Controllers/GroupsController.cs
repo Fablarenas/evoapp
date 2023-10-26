@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TestEvolutiaWorker.Infraestructure.Entities;
 using TestEvolutiaWorker.Infraestructure.Data;
-using System.Reflection.Metadata.Ecma335;
 
 namespace EvorodApp.Controllers
 {
@@ -17,180 +13,98 @@ namespace EvorodApp.Controllers
             _context = context;
         }
 
-        public async Task<List<Group>> GetGroupsAsync()
+        public async Task<IEnumerable<Group>> GetGroupsAsync()
         {
-            var dara = from c in _context.Groups
-                    select c;
-            var data = dara.ToList();
-            return data;
+            try
+            {
+                return await _context.Groups
+                                          .AsNoTracking()
+                                          .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-        // GET: Groups
-        //public async Task<IActionResult> Index(
-        //    string sortOrder,
-        //    string currentFilter,
-        //    string searchString,
-        //    int? pageNumber)
-        //{
-        //    ViewData["CurrentSort"] = sortOrder;
-        //    ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+        public async Task<Group> Details(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
 
-        //    if (searchString != null)
-        //    {
-        //        pageNumber = 1;
-        //    }
-        //    else
-        //    {
-        //        searchString = currentFilter;
-        //    }
+            var group = await _context.Groups.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+            if (@group == null)
+            {
+                return null;
+            }
 
-        //    ViewData["CurrentFilter"] = searchString;
+            return @group;
+        }
 
-        //    var groups = from g in _context.Group
-        //                 select g;
+        public async Task<bool> Create(Group @group)
+        {
+            _context.Add(@group);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        groups = groups.Where(g => g.Name.Contains(searchString) || g.Note.Contains(searchString));
-        //    }
+        public async Task<bool> Edit(int id, Group @group)
+        {
+            if (id != @group.Id)
+            {
+                return false;
+            }
 
-        //    switch (sortOrder)
-        //    {
-        //        case "name_desc":
-        //            groups = groups.OrderByDescending(g => g.Name);
-        //            break;
-        //        default:
-        //            groups = groups.OrderBy(g => g.Name);
-        //            break;
-        //    }
+            try
+            {
+                var existingGroup = await _context.Groups
+                    .Where(g => g.Id == id)
+                    .FirstOrDefaultAsync();
 
-        //    int pageSize = 10;
-        //    return View(await PaginatedList<Group>.CreateAsync(groups.AsNoTracking(), pageNumber ?? 1, pageSize));
-        //}
+                if (existingGroup != null)
+                {
+                    existingGroup.Name = @group.Name;
+                    existingGroup.Note = @group.Note;
 
-        //// GET: Groups/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+                    // Guardar los cambios
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!GroupExists(@group.Id))
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
 
-        //    var @group = await _context.Group
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (@group == null)
-        //    {
-        //        return NotFound();
-        //    }
+            return true;
+        }
 
-        //    return View(@group);
-        //}
+        public async Task<bool> DeleteConfirmed(int id)
+        {
+            var @group = await _context.Groups.FindAsync(id);
+            _context.Groups.Remove(@group);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-        //// GET: Groups/Create
-        //public IActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: Groups/Create
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,Name,Note")] Group @group)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(@group);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(@group);
-        //}
-
-        //// GET: Groups/Edit/5
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var @group = await _context.Group.FindAsync(id);
-        //    if (@group == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(@group);
-        //}
-
-        //// POST: Groups/Edit/5
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Note")] Group @group)
-        //{
-        //    if (id != @group.Id)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            _context.Update(@group);
-        //            await _context.SaveChangesAsync();
-        //        }
-        //        catch (DbUpdateConcurrencyException)
-        //        {
-        //            if (!GroupExists(@group.Id))
-        //            {
-        //                return NotFound();
-        //            }
-        //            else
-        //            {
-        //                throw;
-        //            }
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    return View(@group);
-        //}
-
-        //// GET: Groups/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var @group = await _context.Group
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (@group == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return View(@group);
-        //}
-
-        //// POST: Groups/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var @group = await _context.Group.FindAsync(id);
-        //    _context.Group.Remove(@group);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //private bool GroupExists(int id)
-        //{
-        //    return _context.Group.Any(e => e.Id == id);
-        //}
+        private bool GroupExists(int id)
+        {
+            return _context.Groups.Any(e => e.Id == id);
+        }
     }
 }

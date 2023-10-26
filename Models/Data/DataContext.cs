@@ -25,6 +25,7 @@ namespace TestEvolutiaWorker.Infraestructure.Data
         public DbSet<Um> Ums { get; set; }
         public DbSet<Urm> Urms { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<ContractType> ContractTypes { get; set; }
 
     }
 }

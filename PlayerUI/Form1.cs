@@ -9,16 +9,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestEvolutiaWorker.Infraestructure.Entities;
 
 namespace PlayerUI
 {
     public partial class Form1 : Form
     {
-        private readonly Form2 _form2;
+        private readonly Group _form2;
+        private readonly Client _client;
+        private readonly Cups _cups;
+        private readonly Contract _contract;
+        private readonly Sim _sim;
+        private readonly Device _device;
+        private readonly Urm _urm;
+        private readonly Um _um;
 
-        public Form1(Form2 form)
+        public Form1(Group form, Client client, Cups cups, Contract contract, Sim sim, Device device, Urm urm, Um um)
         {
             _form2 = form;
+            _client = client;
+            _cups = cups;
+            _contract = contract;
+            _sim = sim;
+            _device = device;
+            _urm = urm;
+            _um = um;
+
             Application.EnableVisualStyles();
             InitializeComponent();
             hideSubMenu();
@@ -42,16 +58,11 @@ namespace PlayerUI
                 subMenu.Visible = false;
         }
 
-        private void btnMedia_Click(object sender, EventArgs e)
-        {
-            //showSubMenu(panelMediaSubMenu);
-        }
-
         #region MediaSubMenu
         private void button2_Click(object sender, EventArgs e)
         {
-                openChildForm(_form2);
-                hideSubMenu();
+            openChildForm(_form2);
+            hideSubMenu();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -156,12 +167,6 @@ namespace PlayerUI
         }
         #endregion
 
-        private void btnEqualizer_Click(object sender, EventArgs e)
-        {
-                openChildForm(_form2);
-                hideSubMenu();
-        }
-
         private void btnHelp_Click(object sender, EventArgs e)
         {
             //..
@@ -177,7 +182,8 @@ namespace PlayerUI
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
-            if (activeForm != null) activeForm.Close();
+            if (activeForm != null)
+                activeForm.Close();
             activeForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -196,6 +202,54 @@ namespace PlayerUI
         private void button2_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnGrupos_Click(object sender, EventArgs e)
+        {
+            openChildForm(_form2);
+            hideSubMenu();
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            openChildForm(_client);
+            hideSubMenu();
+        }
+
+        private void btnCups_Click(object sender, EventArgs e)
+        {
+            openChildForm(_cups);
+            hideSubMenu();
+        }
+
+        private void btnContrato_Click(object sender, EventArgs e)
+        {
+            openChildForm(_contract);
+            hideSubMenu();
+        }
+
+        private void btnSim_Click(object sender, EventArgs e)
+        {
+            openChildForm(_sim);
+            hideSubMenu();
+        }
+
+        private void btnDevice_Click(object sender, EventArgs e)
+        {
+            openChildForm(_device);
+            hideSubMenu();
+        }
+
+        private void btnUrm_Click(object sender, EventArgs e)
+        {
+            openChildForm(_urm);
+            hideSubMenu();
+        }
+
+        private void btnUm_Click(object sender, EventArgs e)
+        {
+            openChildForm(_um);
+            hideSubMenu();
         }
     }
 }

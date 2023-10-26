@@ -1,198 +1,114 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Mvc.Rendering;
-//using Microsoft.EntityFrameworkCore;
-//using EvorodApp.Data;
-//using EvorodApp.Models;
-//using EvorodApp.Utils;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TestEvolutiaWorker.Infraestructure.Data;
+using TestEvolutiaWorker.Infraestructure.Entities;
 
-//namespace EvorodApp.Controllers
-//{
-//    public class CupsController : Controller
-//    {
-//        private readonly ApplicationDbContext _context;
+namespace EvorodApp.Controllers
+{
+    public class CupsController
+    {
+        private readonly DataContext _context;
 
-//        public CupsController(ApplicationDbContext context)
-//        {
-//            _context = context;
-//        }
+        public CupsController(DataContext context)
+        {
+            _context = context;
+        }
 
-//        // GET: Cups
-//        public async Task<IActionResult> Index(
-//                    string sortOrder,
-//                    string currentFilter,
-//                    string searchString,
-//                    int? pageNumber)
-//        {
-//            ViewData["CurrentSort"] = sortOrder;
-//            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+        public async Task<IEnumerable<Cups>> GetCupsAsync()
+        {
+            try
+            {
+                return await _context.Cups
+                                          .AsNoTracking()
+                                          .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
-//            if (searchString != null)
-//            {
-//                pageNumber = 1;
-//            }
-//            else
-//            {
-//                searchString = currentFilter;
-//            }
+        public async Task<Cups> Details(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
 
-//            ViewData["CurrentFilter"] = searchString;
+            var Cups = await _context.Cups.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+            if (@Cups == null)
+            {
+                return null;
+            }
 
-//            var cups = from c in _context.Cup.Include(c => c.Client)
-//                       select c;
+            return @Cups;
+        }
 
-//            if (!String.IsNullOrEmpty(searchString))
-//            {
-//                cups = cups.Where(c => c.CupsCode.Contains(searchString) || c.Note.Contains(searchString));
-//            }
+        public async Task<bool> Create(Cups @Cups)
+        {
+            _context.Add(@Cups);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-//            switch (sortOrder)
-//            {
-//                case "name_desc":
-//                    cups = cups.OrderByDescending(c => c.CupsCode);
-//                    break;
-//                default:
-//                    cups = cups.OrderBy(c => c.CupsCode);
-//                    break;
-//            }
+        public async Task<bool> Edit(int id, Cups @Cups)
+        {
+            if (id != @Cups.Id)
+            {
+                return false;
+            }
 
-//            int pageSize = 10;
-//            return View(await PaginatedList<Cups>.CreateAsync(cups.AsNoTracking(), pageNumber ?? 1, pageSize));
-//        }
+            try
+            {
+                var existingCups = await _context.Cups
+                    .Where(g => g.Id == id)
+                    .FirstOrDefaultAsync();
 
+                if (existingCups != null)
+                {
+                    //existingCups.Name = @Cups.Name;
+                    existingCups.Note = @Cups.Note;
 
-//        // GET: Cups/Details/5
-//        public async Task<IActionResult> Details(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
+                    // Guardar los cambios
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CupsExists(@Cups.Id))
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
 
-//            var cups = await _context.Cup
-//                .Include(c => c.Client)
-//                .FirstOrDefaultAsync(m => m.Id == id);
-//            if (cups == null)
-//            {
-//                return NotFound();
-//            }
+            return true;
+        }
 
-//            return View(cups);
-//        }
+        public async Task<bool> DeleteConfirmed(int id)
+        {
+            var @Cups = await _context.Cups.FindAsync(id);
+            _context.Cups.Remove(@Cups);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-//        // GET: Cups/Create
-//        public IActionResult Create()
-//        {
-//            ViewData["IdClient"] = new SelectList(_context.Client, "Id", "CIF");
-//            return View();
-//        }
-
-//        // POST: Cups/Create
-//        // To protect from overposting attacks, enable the specific properties you want to bind to.
-//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Create([Bind("Id,IdClient,CupsCode,Supply,Priority,Auto,FrameActv,HourlyActv,DailyActv,LogActv,Note")] Cups cups)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                _context.Add(cups);
-//                await _context.SaveChangesAsync();
-//                return RedirectToAction(nameof(Index));
-//            }
-//            ViewData["IdClient"] = new SelectList(_context.Client, "Id", "CIF", cups.IdClient);
-//            return View(cups);
-//        }
-
-//        // GET: Cups/Edit/5
-//        public async Task<IActionResult> Edit(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
-
-//            var cups = await _context.Cup.FindAsync(id);
-//            if (cups == null)
-//            {
-//                return NotFound();
-//            }
-//            ViewData["IdClient"] = new SelectList(_context.Client, "Id", "CIF", cups.IdClient);
-//            return View(cups);
-//        }
-
-//        // POST: Cups/Edit/5
-//        // To protect from overposting attacks, enable the specific properties you want to bind to.
-//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Edit(int id, [Bind("Id,IdClient,CupsCode,Supply,Priority,Auto,FrameActv,HourlyActv,DailyActv,LogActv,Note")] Cups cups)
-//        {
-//            if (id != cups.Id)
-//            {
-//                return NotFound();
-//            }
-
-//            if (ModelState.IsValid)
-//            {
-//                try
-//                {
-//                    _context.Update(cups);
-//                    await _context.SaveChangesAsync();
-//                }
-//                catch (DbUpdateConcurrencyException)
-//                {
-//                    if (!CupsExists(cups.Id))
-//                    {
-//                        return NotFound();
-//                    }
-//                    else
-//                    {
-//                        throw;
-//                    }
-//                }
-//                return RedirectToAction(nameof(Index));
-//            }
-//            ViewData["IdClient"] = new SelectList(_context.Client, "Id", "CIF", cups.IdClient);
-//            return View(cups);
-//        }
-
-//        // GET: Cups/Delete/5
-//        public async Task<IActionResult> Delete(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
-
-//            var cups = await _context.Cup
-//                .Include(c => c.Client)
-//                .FirstOrDefaultAsync(m => m.Id == id);
-//            if (cups == null)
-//            {
-//                return NotFound();
-//            }
-
-//            return View(cups);
-//        }
-
-//        // POST: Cups/Delete/5
-//        [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> DeleteConfirmed(int id)
-//        {
-//            var cups = await _context.Cup.FindAsync(id);
-//            _context.Cup.Remove(cups);
-//            await _context.SaveChangesAsync();
-//            return RedirectToAction(nameof(Index));
-//        }
-
-//        private bool CupsExists(int id)
-//        {
-//            return _context.Cup.Any(e => e.Id == id);
-//        }
-//    }
-//}
+        private bool CupsExists(int id)
+        {
+            return _context.Cups.Any(e => e.Id == id);
+        }
+    }
+}

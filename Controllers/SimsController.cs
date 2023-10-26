@@ -1,215 +1,114 @@
-﻿//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Mvc.Rendering;
-//using Microsoft.EntityFrameworkCore;
-//using EvorodApp.Data;
-//using EvorodApp.Models;
-//using EvorodApp.Utils;
-//using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TestEvolutiaWorker.Infraestructure.Data;
+using TestEvolutiaWorker.Infraestructure.Entities;
 
-//namespace EvorodApp.Controllers
-//{
-//    public class SimsController : Controller
-//    {
-//        private readonly ApplicationDbContext _context;
+namespace EvorodApp.Controllers
+{
+    public class SimController
+    {
+        private readonly DataContext _context;
 
-//        public SimsController(ApplicationDbContext context)
-//        {
-//            _context = context;
-//        }
+        public SimController(DataContext context)
+        {
+            _context = context;
+        }
 
-//        // GET: Sims
-//        public async Task<IActionResult> Index(
-//            string sortOrder,
-//            string currentFilter,
-//            string searchString,
-//            int? pageNumber)
-//        {
-//            ViewData["CurrentSort"] = sortOrder;
-//            ViewData["NumberSortParm"] = String.IsNullOrEmpty(sortOrder) ? "number_desc" : "";
-//            ViewData["PhoneSortParm"] = sortOrder == "Phone" ? "phone_desc" : "Phone";
-//            ViewData["OperatorSortParm"] = sortOrder == "Operator" ? "operator_desc" : "Operator";
+        public async Task<IEnumerable<Sim>> GetSimAsync()
+        {
+            try
+            {
+                return await _context.Sims
+                                          .AsNoTracking()
+                                          .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
-//            if (searchString != null)
-//            {
-//                pageNumber = 1;
-//            }
-//            else
-//            {
-//                searchString = currentFilter;
-//            }
+        public async Task<Sim> Details(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
 
-//            ViewData["CurrentFilter"] = searchString;
+            var Sim = await _context.Sims.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+            if (@Sim == null)
+            {
+                return null;
+            }
 
-//            var sims = from s in _context.Sim.Include(c => c.ContractType)
-//                       select s;
+            return @Sim;
+        }
 
-//            if (!String.IsNullOrEmpty(searchString))
-//            {
-//                sims = sims.Where(s => s.Number.Contains(searchString)
-//                                || s.Phone.Contains(searchString)
-//                                || s.Operator.Contains(searchString)
-//                                || s.Note.Contains(searchString));
-//            }
+        public async Task<bool> Create(Sim @Sim)
+        {
+            _context.Add(@Sim);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-//            switch (sortOrder)
-//            {
-//                case "number_desc":
-//                    sims = sims.OrderByDescending(s => s.Number);
-//                    break;
-//                case "Phone":
-//                    sims = sims.OrderBy(s => s.Phone);
-//                    break;
-//                case "phone_desc":
-//                    sims = sims.OrderByDescending(s => s.Phone);
-//                    break;
-//                case "Operator":
-//                    sims = sims.OrderBy(s => s.Operator);
-//                    break;
-//                case "operator_desc":
-//                    sims = sims.OrderByDescending(s => s.Operator);
-//                    break;
-//                default:
-//                    sims = sims.OrderBy(s => s.Number);
-//                    break;
-//            }
+        public async Task<bool> Edit(int id, Sim @Sim)
+        {
+            if (id != @Sim.Id)
+            {
+                return false;
+            }
 
-//            int pageSize = 10;
-//            return View(await PaginatedList<Sim>.CreateAsync(sims.AsNoTracking(), pageNumber ?? 1, pageSize));
-//        }
+            try
+            {
+                var existingSim = await _context.Sims
+                    .Where(g => g.Id == id)
+                    .FirstOrDefaultAsync();
 
+                if (existingSim != null)
+                {
+                    //existingSim.Name = @Sim.Name;
+                    existingSim.Note = @Sim.Note;
 
-//        // GET: Sims/Details/5
-//        public async Task<IActionResult> Details(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
+                    // Guardar los cambios
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!SimExists(@Sim.Id))
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
 
-//            var sim = await _context.Sim
-//                .Include(s => s.ContractType)
-//                .FirstOrDefaultAsync(m => m.Id == id);
-//            if (sim == null)
-//            {
-//                return NotFound();
-//            }
+            return true;
+        }
 
-//            return View(sim);
-//        }
+        public async Task<bool> DeleteConfirmed(int id)
+        {
+            var @Sim = await _context.Sims.FindAsync(id);
+            _context.Sims.Remove(@Sim);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-//        // GET: Sims/Create
-//        public IActionResult Create()
-//        {
-//            ViewData["IdContract"] = new SelectList(_context.ContractType, "Id", "Detail");
-//            return View();
-//        }
-
-//        // POST: Sims/Create
-//        // To protect from overposting attacks, enable the specific properties you want to bind to.
-//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Create([Bind("Id,Number,Phone,Operator,IdContract,Note")] Sim sim)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                _context.Add(sim);
-//                await _context.SaveChangesAsync();
-//                return RedirectToAction(nameof(Index));
-//            }
-//            ViewData["IdContract"] = new SelectList(_context.ContractType, "Id", "Detail", sim.IdContract);
-//            return View(sim);
-//        }
-
-//        // GET: Sims/Edit/5
-//        public async Task<IActionResult> Edit(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
-
-//            var sim = await _context.Sim.FindAsync(id);
-//            if (sim == null)
-//            {
-//                return NotFound();
-//            }
-//            ViewData["IdContract"] = new SelectList(_context.ContractType, "Id", "Detail", sim.IdContract);
-//            return View(sim);
-//        }
-
-//        // POST: Sims/Edit/5
-//        // To protect from overposting attacks, enable the specific properties you want to bind to.
-//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Edit(int id, [Bind("Id,Number,Phone,Operator,IdContract,Note")] Sim sim)
-//        {
-//            if (id != sim.Id)
-//            {
-//                return NotFound();
-//            }
-
-//            if (ModelState.IsValid)
-//            {
-//                try
-//                {
-//                    _context.Update(sim);
-//                    await _context.SaveChangesAsync();
-//                }
-//                catch (DbUpdateConcurrencyException)
-//                {
-//                    if (!SimExists(sim.Id))
-//                    {
-//                        return NotFound();
-//                    }
-//                    else
-//                    {
-//                        throw;
-//                    }
-//                }
-//                return RedirectToAction(nameof(Index));
-//            }
-//            ViewData["IdContract"] = new SelectList(_context.ContractType, "Id", "Detail", sim.IdContract);
-//            return View(sim);
-//        }
-
-//        // GET: Sims/Delete/5
-//        public async Task<IActionResult> Delete(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
-
-//            var sim = await _context.Sim
-//                .Include(s => s.ContractType)
-//                .FirstOrDefaultAsync(m => m.Id == id);
-//            if (sim == null)
-//            {
-//                return NotFound();
-//            }
-
-//            return View(sim);
-//        }
-
-//        // POST: Sims/Delete/5
-//        [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> DeleteConfirmed(int id)
-//        {
-//            var sim = await _context.Sim.FindAsync(id);
-//            _context.Sim.Remove(sim);
-//            await _context.SaveChangesAsync();
-//            return RedirectToAction(nameof(Index));
-//        }
-
-//        private bool SimExists(int id)
-//        {
-//            return _context.Sim.Any(e => e.Id == id);
-//        }
-//    }
-//}
+        private bool SimExists(int id)
+        {
+            return _context.Sims.Any(e => e.Id == id);
+        }
+    }
+}

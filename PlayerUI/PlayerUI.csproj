@@ -17,5 +17,28 @@
   <ItemGroup>
     <ProjectReference Include="..\Controllers\Controllers.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Contract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Um.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Urm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Device.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Sim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Cups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
 
 </Project>

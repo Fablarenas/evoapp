@@ -29,278 +29,308 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnExit = new System.Windows.Forms.Button();
-            this.btnEqualizer = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelChildForm = new System.Windows.Forms.Panel();
-            this.panelSideMenu.SuspendLayout();
-            this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            panelSideMenu = new Panel();
+            btnUm = new Button();
+            btnUrm = new Button();
+            btnDevice = new Button();
+            btnSim = new Button();
+            btnContrato = new Button();
+            btnCups = new Button();
+            btnClientes = new Button();
+            btnExit = new Button();
+            btnGrupos = new Button();
+            panelLogo = new Panel();
+            pictureBox1 = new PictureBox();
+            panelChildForm = new Panel();
+            panelSideMenu.SuspendLayout();
+            panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // panelSideMenu
             // 
-            this.panelSideMenu.AutoScroll = true;
-            this.panelSideMenu.BackColor = System.Drawing.Color.White;
-            this.panelSideMenu.Controls.Add(this.button6);
-            this.panelSideMenu.Controls.Add(this.button5);
-            this.panelSideMenu.Controls.Add(this.button4);
-            this.panelSideMenu.Controls.Add(this.button3);
-            this.panelSideMenu.Controls.Add(this.button2);
-            this.panelSideMenu.Controls.Add(this.button1);
-            this.panelSideMenu.Controls.Add(this.btnExit);
-            this.panelSideMenu.Controls.Add(this.btnEqualizer);
-            this.panelSideMenu.Controls.Add(this.panelLogo);
-            this.panelSideMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSideMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelSideMenu.Name = "panelSideMenu";
-            this.panelSideMenu.Size = new System.Drawing.Size(250, 561);
-            this.panelSideMenu.TabIndex = 0;
+            panelSideMenu.AutoScroll = true;
+            panelSideMenu.BackColor = Color.White;
+            panelSideMenu.Controls.Add(btnUm);
+            panelSideMenu.Controls.Add(btnUrm);
+            panelSideMenu.Controls.Add(btnDevice);
+            panelSideMenu.Controls.Add(btnSim);
+            panelSideMenu.Controls.Add(btnContrato);
+            panelSideMenu.Controls.Add(btnCups);
+            panelSideMenu.Controls.Add(btnClientes);
+            panelSideMenu.Controls.Add(btnExit);
+            panelSideMenu.Controls.Add(btnGrupos);
+            panelSideMenu.Controls.Add(panelLogo);
+            panelSideMenu.Dock = DockStyle.Left;
+            panelSideMenu.Location = new Point(0, 0);
+            panelSideMenu.Name = "panelSideMenu";
+            panelSideMenu.Size = new Size(250, 561);
+            panelSideMenu.TabIndex = 0;
             // 
-            // button6
+            // btnUm
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.Black;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(0, 362);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(250, 45);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "  Um";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button6.UseVisualStyleBackColor = false;
+            btnUm.BackColor = Color.White;
+            btnUm.Dock = DockStyle.Top;
+            btnUm.FlatAppearance.BorderSize = 0;
+            btnUm.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnUm.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnUm.FlatStyle = FlatStyle.Flat;
+            btnUm.ForeColor = Color.Black;
+            btnUm.Image = (Image)resources.GetObject("btnUm.Image");
+            btnUm.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUm.Location = new Point(0, 407);
+            btnUm.Name = "btnUm";
+            btnUm.Padding = new Padding(5, 0, 0, 0);
+            btnUm.Size = new Size(250, 45);
+            btnUm.TabIndex = 16;
+            btnUm.Text = "  Um";
+            btnUm.TextAlign = ContentAlignment.MiddleLeft;
+            btnUm.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUm.UseVisualStyleBackColor = false;
+            btnUm.Click += btnUm_Click;
             // 
-            // button5
+            // btnUrm
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.Black;
-            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 317);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(250, 45);
-            this.button5.TabIndex = 14;
-            this.button5.Text = "  Urm";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = false;
+            btnUrm.BackColor = Color.White;
+            btnUrm.Dock = DockStyle.Top;
+            btnUrm.FlatAppearance.BorderSize = 0;
+            btnUrm.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnUrm.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnUrm.FlatStyle = FlatStyle.Flat;
+            btnUrm.ForeColor = Color.Black;
+            btnUrm.Image = (Image)resources.GetObject("btnUrm.Image");
+            btnUrm.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUrm.Location = new Point(0, 362);
+            btnUrm.Name = "btnUrm";
+            btnUrm.Padding = new Padding(5, 0, 0, 0);
+            btnUrm.Size = new Size(250, 45);
+            btnUrm.TabIndex = 15;
+            btnUrm.Text = "  Urm";
+            btnUrm.TextAlign = ContentAlignment.MiddleLeft;
+            btnUrm.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnUrm.UseVisualStyleBackColor = false;
+            btnUrm.Click += btnUrm_Click;
             // 
-            // button4
+            // btnDevice
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 272);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(250, 45);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "  Dispositivos";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
+            btnDevice.BackColor = Color.White;
+            btnDevice.Dock = DockStyle.Top;
+            btnDevice.FlatAppearance.BorderSize = 0;
+            btnDevice.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnDevice.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnDevice.FlatStyle = FlatStyle.Flat;
+            btnDevice.ForeColor = Color.Black;
+            btnDevice.Image = (Image)resources.GetObject("btnDevice.Image");
+            btnDevice.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDevice.Location = new Point(0, 317);
+            btnDevice.Name = "btnDevice";
+            btnDevice.Padding = new Padding(5, 0, 0, 0);
+            btnDevice.Size = new Size(250, 45);
+            btnDevice.TabIndex = 14;
+            btnDevice.Text = "  Dispositivos";
+            btnDevice.TextAlign = ContentAlignment.MiddleLeft;
+            btnDevice.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDevice.UseVisualStyleBackColor = false;
+            btnDevice.Click += btnDevice_Click;
             // 
-            // button3
+            // btnSim
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 227);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(250, 45);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "  Sims";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
+            btnSim.BackColor = Color.White;
+            btnSim.Dock = DockStyle.Top;
+            btnSim.FlatAppearance.BorderSize = 0;
+            btnSim.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnSim.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnSim.FlatStyle = FlatStyle.Flat;
+            btnSim.ForeColor = Color.Black;
+            btnSim.Image = (Image)resources.GetObject("btnSim.Image");
+            btnSim.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSim.Location = new Point(0, 272);
+            btnSim.Name = "btnSim";
+            btnSim.Padding = new Padding(5, 0, 0, 0);
+            btnSim.Size = new Size(250, 45);
+            btnSim.TabIndex = 13;
+            btnSim.Text = "  Sim-Card";
+            btnSim.TextAlign = ContentAlignment.MiddleLeft;
+            btnSim.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnSim.UseVisualStyleBackColor = false;
+            btnSim.Click += btnSim_Click;
             // 
-            // button2
+            // btnContrato
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 182);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(250, 45);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "  Cups";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            btnContrato.BackColor = Color.White;
+            btnContrato.Dock = DockStyle.Top;
+            btnContrato.FlatAppearance.BorderSize = 0;
+            btnContrato.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnContrato.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnContrato.FlatStyle = FlatStyle.Flat;
+            btnContrato.ForeColor = Color.Black;
+            btnContrato.Image = (Image)resources.GetObject("btnContrato.Image");
+            btnContrato.ImageAlign = ContentAlignment.MiddleLeft;
+            btnContrato.Location = new Point(0, 227);
+            btnContrato.Name = "btnContrato";
+            btnContrato.Padding = new Padding(5, 0, 0, 0);
+            btnContrato.Size = new Size(250, 45);
+            btnContrato.TabIndex = 12;
+            btnContrato.Text = "  Tipos de contrato";
+            btnContrato.TextAlign = ContentAlignment.MiddleLeft;
+            btnContrato.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnContrato.UseVisualStyleBackColor = false;
+            btnContrato.Click += btnContrato_Click;
             // 
-            // button1
+            // btnCups
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 137);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(250, 45);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "  Clientes";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            btnCups.BackColor = Color.White;
+            btnCups.Dock = DockStyle.Top;
+            btnCups.FlatAppearance.BorderSize = 0;
+            btnCups.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnCups.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnCups.FlatStyle = FlatStyle.Flat;
+            btnCups.ForeColor = Color.Black;
+            btnCups.Image = (Image)resources.GetObject("btnCups.Image");
+            btnCups.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCups.Location = new Point(0, 182);
+            btnCups.Name = "btnCups";
+            btnCups.Padding = new Padding(5, 0, 0, 0);
+            btnCups.Size = new Size(250, 45);
+            btnCups.TabIndex = 11;
+            btnCups.Text = "  Cups";
+            btnCups.TextAlign = ContentAlignment.MiddleLeft;
+            btnCups.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnCups.UseVisualStyleBackColor = false;
+            btnCups.Click += btnCups_Click;
+            // 
+            // btnClientes
+            // 
+            btnClientes.BackColor = Color.White;
+            btnClientes.Dock = DockStyle.Top;
+            btnClientes.FlatAppearance.BorderSize = 0;
+            btnClientes.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnClientes.FlatStyle = FlatStyle.Flat;
+            btnClientes.ForeColor = Color.Black;
+            btnClientes.Image = (Image)resources.GetObject("btnClientes.Image");
+            btnClientes.ImageAlign = ContentAlignment.MiddleLeft;
+            btnClientes.Location = new Point(0, 137);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Padding = new Padding(5, 0, 0, 0);
+            btnClientes.Size = new Size(250, 45);
+            btnClientes.TabIndex = 10;
+            btnClientes.Text = "  Clientes";
+            btnClientes.TextAlign = ContentAlignment.MiddleLeft;
+            btnClientes.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
             // 
             // btnExit
             // 
-            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.ForeColor = System.Drawing.Color.Silver;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(0, 516);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnExit.Size = new System.Drawing.Size(250, 45);
-            this.btnExit.TabIndex = 9;
-            this.btnExit.Text = "  Exit";
-            this.btnExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            btnExit.Dock = DockStyle.Bottom;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnExit.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.ForeColor = Color.Silver;
+            btnExit.Image = (Image)resources.GetObject("btnExit.Image");
+            btnExit.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExit.Location = new Point(0, 516);
+            btnExit.Name = "btnExit";
+            btnExit.Padding = new Padding(5, 0, 0, 0);
+            btnExit.Size = new Size(250, 45);
+            btnExit.TabIndex = 9;
+            btnExit.Text = "  Exit";
+            btnExit.TextAlign = ContentAlignment.MiddleLeft;
+            btnExit.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
-            // btnEqualizer
+            // btnGrupos
             // 
-            this.btnEqualizer.BackColor = System.Drawing.Color.White;
-            this.btnEqualizer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnEqualizer.FlatAppearance.BorderSize = 0;
-            this.btnEqualizer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.btnEqualizer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
-            this.btnEqualizer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEqualizer.ForeColor = System.Drawing.Color.Black;
-            this.btnEqualizer.Image = ((System.Drawing.Image)(resources.GetObject("btnEqualizer.Image")));
-            this.btnEqualizer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEqualizer.Location = new System.Drawing.Point(0, 92);
-            this.btnEqualizer.Name = "btnEqualizer";
-            this.btnEqualizer.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.btnEqualizer.Size = new System.Drawing.Size(250, 45);
-            this.btnEqualizer.TabIndex = 5;
-            this.btnEqualizer.Text = "  Grupos";
-            this.btnEqualizer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEqualizer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEqualizer.UseVisualStyleBackColor = false;
-            this.btnEqualizer.Click += new System.EventHandler(this.btnEqualizer_Click);
+            btnGrupos.BackColor = Color.White;
+            btnGrupos.Dock = DockStyle.Top;
+            btnGrupos.FlatAppearance.BorderSize = 0;
+            btnGrupos.FlatAppearance.MouseDownBackColor = Color.FromArgb(23, 21, 32);
+            btnGrupos.FlatAppearance.MouseOverBackColor = Color.FromArgb(24, 22, 34);
+            btnGrupos.FlatStyle = FlatStyle.Flat;
+            btnGrupos.ForeColor = Color.Black;
+            btnGrupos.Image = (Image)resources.GetObject("btnGrupos.Image");
+            btnGrupos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGrupos.Location = new Point(0, 92);
+            btnGrupos.Name = "btnGrupos";
+            btnGrupos.Padding = new Padding(5, 0, 0, 0);
+            btnGrupos.Size = new Size(250, 45);
+            btnGrupos.TabIndex = 5;
+            btnGrupos.Text = "  Grupos";
+            btnGrupos.TextAlign = ContentAlignment.MiddleLeft;
+            btnGrupos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnGrupos.UseCompatibleTextRendering = true;
+            btnGrupos.UseVisualStyleBackColor = false;
+            btnGrupos.Click += btnGrupos_Click;
             // 
             // panelLogo
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(130)))), ((int)(((byte)(112)))));
-            this.panelLogo.Controls.Add(this.pictureBox1);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 92);
-            this.panelLogo.TabIndex = 0;
+            panelLogo.BackColor = Color.FromArgb(86, 130, 112);
+            panelLogo.Controls.Add(pictureBox1);
+            panelLogo.Dock = DockStyle.Top;
+            panelLogo.Location = new Point(0, 0);
+            panelLogo.Name = "panelLogo";
+            panelLogo.Size = new Size(250, 92);
+            panelLogo.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(159, 60);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(36, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(159, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // panelChildForm
             // 
-            this.panelChildForm.BackColor = System.Drawing.Color.White;
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(684, 561);
-            this.panelChildForm.TabIndex = 2;
-            this.panelChildForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildForm_Paint);
+            panelChildForm.BackColor = Color.White;
+            panelChildForm.Dock = DockStyle.Fill;
+            panelChildForm.Location = new Point(250, 0);
+            panelChildForm.Name = "panelChildForm";
+            panelChildForm.Size = new Size(684, 561);
+            panelChildForm.TabIndex = 2;
+            panelChildForm.Paint += panelChildForm_Paint;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(934, 561);
-            this.Controls.Add(this.panelChildForm);
-            this.Controls.Add(this.panelSideMenu);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(950, 600);
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panelSideMenu.ResumeLayout(false);
-            this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(934, 561);
+            Controls.Add(panelChildForm);
+            Controls.Add(panelSideMenu);
+            Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4);
+            MinimumSize = new Size(950, 600);
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            panelSideMenu.ResumeLayout(false);
+            panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelSideMenu;
-        private System.Windows.Forms.Button btnEqualizer;
-        private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private Panel panelSideMenu;
+        private Button btnGrupos;
+        private Panel panelLogo;
+        private PictureBox pictureBox1;
+        private Button btnExit;
+        private Panel panelChildForm;
+        private Button btnUrm;
+        private Button btnDevice;
+        private Button btnSim;
+        private Button btnContrato;
+        private Button btnCups;
+        private Button btnClientes;
+        private Button btnUm;
     }
 }
 

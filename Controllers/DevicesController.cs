@@ -1,215 +1,114 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using Microsoft.AspNetCore.Mvc;
-//using Microsoft.AspNetCore.Mvc.Rendering;
-//using Microsoft.EntityFrameworkCore;
-//using EvorodApp.Data;
-//using EvorodApp.Models;
-//using EvorodApp.Utils;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using TestEvolutiaWorker.Infraestructure.Data;
+using TestEvolutiaWorker.Infraestructure.Entities;
 
-//namespace EvorodApp.Controllers
-//{
-//    public class DevicesController : Controller
-//    {
-//        private readonly ApplicationDbContext _context;
+namespace EvorodApp.Controllers
+{
+    public class DeviceController
+    {
+        private readonly DataContext _context;
 
-//        //public DevicesController(ApplicationDbContext context)
-//        {
-//            _context = context;
-//        }
+        public DeviceController(DataContext context)
+        {
+            _context = context;
+        }
 
-//        // GET: Devices
-//        public async Task<IActionResult> Index(
-//            string sortOrder,
-//            string currentFilter,
-//            string searchString,
-//            int? pageNumber)
-//        {
-//            ViewData["CurrentSort"] = sortOrder;
-//            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-//            ViewData["BrandSortParm"] = String.IsNullOrEmpty(sortOrder) ? "brand_desc" : "brand";
-//            ViewData["ModelSortParm"] = String.IsNullOrEmpty(sortOrder) ? "model_desc" : "model";
+        public async Task<IEnumerable<Device>> GetDeviceAsync()
+        {
+            try
+            {
+                return await _context.Devices
+                                          .AsNoTracking()
+                                          .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
-//            if (searchString != null)
-//            {
-//                pageNumber = 1;
-//            }
-//            else
-//            {
-//                searchString = currentFilter;
-//            }
+        public async Task<Device> Details(int? id)
+        {
+            if (id == null)
+            {
+                return null;
+            }
 
-//            ViewData["CurrentFilter"] = searchString;
+            var Device = await _context.Devices.AsNoTracking().FirstOrDefaultAsync(g => g.Id == id);
+            if (@Device == null)
+            {
+                return null;
+            }
 
-//            var devices = from d in _context.Device.Include(d => d.Sim)
-//                          select d;
+            return @Device;
+        }
 
-//            if (!String.IsNullOrEmpty(searchString))
-//            {
-//                devices = devices.Where(d => d.Name.Contains(searchString) ||
-//                                             d.Brand.Contains(searchString) ||
-//                                             d.Model.Contains(searchString) ||
-//                                             d.Note.Contains(searchString));
-//            }
+        public async Task<bool> Create(Device @Device)
+        {
+            _context.Add(@Device);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-//            switch (sortOrder)
-//            {
-//                case "name_desc":
-//                    devices = devices.OrderByDescending(d => d.Name);
-//                    break;
-//                case "brand":
-//                    devices = devices.OrderBy(d => d.Brand);
-//                    break;
-//                case "brand_desc":
-//                    devices = devices.OrderByDescending(d => d.Brand);
-//                    break;
-//                case "model":
-//                    devices = devices.OrderBy(d => d.Model);
-//                    break;
-//                case "model_desc":
-//                    devices = devices.OrderByDescending(d => d.Model);
-//                    break;
-//                default:
-//                    devices = devices.OrderBy(d => d.Name);
-//                    break;
-//            }
+        public async Task<bool> Edit(int id, Device @Device)
+        {
+            if (id != @Device.Id)
+            {
+                return false;
+            }
 
-//            int pageSize = 10;
-//            return View(await PaginatedList<Device>.CreateAsync(devices.AsNoTracking(), pageNumber ?? 1, pageSize));
-//        }
+            try
+            {
+                var existingDevice = await _context.Devices
+                    .Where(g => g.Id == id)
+                    .FirstOrDefaultAsync();
 
+                if (existingDevice != null)
+                {
+                    //existingDevice.Name = @Device.Name;
+                    existingDevice.Note = @Device.Note;
 
-//        // GET: Devices/Details/5
-//        public async Task<IActionResult> Details(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
+                    // Guardar los cambios
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DeviceExists(@Device.Id))
+                {
+                    return false;
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
 
-//            var device = await _context.Device
-//                .Include(d => d.Sim)
-//                .FirstOrDefaultAsync(m => m.Id == id);
-//            if (device == null)
-//            {
-//                return NotFound();
-//            }
+            return true;
+        }
 
-//            return View(device);
-//        }
+        public async Task<bool> DeleteConfirmed(int id)
+        {
+            var @Device = await _context.Devices.FindAsync(id);
+            _context.Devices.Remove(@Device);
+            await _context.SaveChangesAsync();
+            return true;
+        }
 
-//        // GET: Devices/Create
-//        public IActionResult Create()
-//        {
-//            ViewData["IdSim"] = new SelectList(_context.Sim, "Id", "Number");
-//            return View();
-//        }
-
-//        // POST: Devices/Create
-//        // To protect from overposting attacks, enable the specific properties you want to bind to.
-//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Create([Bind("Id,IdSim,Name,Brand,Model,Serial,RouterIp,RouterPort,User,Password,Note")] Device device)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                _context.Add(device);
-//                await _context.SaveChangesAsync();
-//                return RedirectToAction(nameof(Index));
-//            }
-//            ViewData["IdSim"] = new SelectList(_context.Sim, "Id", "Number", device.IdSim);
-//            return View(device);
-//        }
-
-//        // GET: Devices/Edit/5
-//        public async Task<IActionResult> Edit(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
-
-//            var device = await _context.Device.FindAsync(id);
-//            if (device == null)
-//            {
-//                return NotFound();
-//            }
-//            ViewData["IdSim"] = new SelectList(_context.Sim, "Id", "Number", device.IdSim);
-//            return View(device);
-//        }
-
-//        // POST: Devices/Edit/5
-//        // To protect from overposting attacks, enable the specific properties you want to bind to.
-//        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-//        [HttpPost]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> Edit(int id, [Bind("Id,IdSim,Name,Brand,Model,Serial,RouterIp,RouterPort,User,Password,Note")] Device device)
-//        {
-//            if (id != device.Id)
-//            {
-//                return NotFound();
-//            }
-
-//            if (ModelState.IsValid)
-//            {
-//                try
-//                {
-//                    _context.Update(device);
-//                    await _context.SaveChangesAsync();
-//                }
-//                catch (DbUpdateConcurrencyException)
-//                {
-//                    if (!DeviceExists(device.Id))
-//                    {
-//                        return NotFound();
-//                    }
-//                    else
-//                    {
-//                        throw;
-//                    }
-//                }
-//                return RedirectToAction(nameof(Index));
-//            }
-//            ViewData["IdSim"] = new SelectList(_context.Sim, "Id", "Number", device.IdSim);
-//            return View(device);
-//        }
-
-//        // GET: Devices/Delete/5
-//        public async Task<IActionResult> Delete(int? id)
-//        {
-//            if (id == null)
-//            {
-//                return NotFound();
-//            }
-
-//            var device = await _context.Device
-//                .Include(d => d.Sim)
-//                .FirstOrDefaultAsync(m => m.Id == id);
-//            if (device == null)
-//            {
-//                return NotFound();
-//            }
-
-//            return View(device);
-//        }
-
-//        // POST: Devices/Delete/5
-//        [HttpPost, ActionName("Delete")]
-//        [ValidateAntiForgeryToken]
-//        public async Task<IActionResult> DeleteConfirmed(int id)
-//        {
-//            var device = await _context.Device.FindAsync(id);
-//            _context.Device.Remove(device);
-//            await _context.SaveChangesAsync();
-//            return RedirectToAction(nameof(Index));
-//        }
-
-//        private bool DeviceExists(int id)
-//        {
-//            return _context.Device.Any(e => e.Id == id);
-//        }
-//    }
-//}
+        private bool DeviceExists(int id)
+        {
+            return _context.Devices.Any(e => e.Id == id);
+        }
+    }
+}

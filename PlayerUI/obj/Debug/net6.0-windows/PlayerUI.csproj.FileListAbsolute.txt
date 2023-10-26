@@ -1,8 +1,15 @@
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.csproj.AssemblyReference.cache
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Client.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Contract.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Cups.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Device.resources
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Form1.resources
-C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Form2.resources
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Form3.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Group.resources
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Properties.Resources.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Sim.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Um.resources
+C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.Urm.resources
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.csproj.GenerateResource.cache
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\FabianArenas\source\repos\Modern-Media-Player-UI-C-Sharp\PlayerUI\obj\Debug\net6.0-windows\PlayerUI.AssemblyInfoInputs.cache
