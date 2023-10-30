@@ -13,13 +13,22 @@ namespace EvorodApp.Controllers
             _context = context;
         }
 
-        public async Task<IEnumerable<Client>> GetClientsAsync()
+        public async Task<IEnumerable<object>> GetClientsAsync()
         {
             try
             {
                 return await _context.Clients
-                                          .AsNoTracking()
-                                          .ToListAsync();
+                                     .Include(c => c.Group) // Asegúrese de que Group está correctamente configurado en su modelo
+                                     .Select(c => new
+                                     {
+                                         c.Id,
+                                         c.Name,
+                                         c.CIF,
+                                         c.Note,
+                                         GroupName = c.Group.Name // Asumiendo que la relación está correctamente configurada
+                                     })
+                                     .AsNoTracking()
+                                     .ToListAsync();
             }
             catch (Exception ex)
             {

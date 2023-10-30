@@ -6,13 +6,19 @@ namespace PlayerUI
     public partial class Client : Form
     {
         private readonly ClientsController _ClientsController;
-        public Client(ClientsController ClientsController)
+        private readonly GroupsController _GroupsController;
+        public Client(ClientsController ClientsController, GroupsController groupsController)
         {
             _ClientsController = ClientsController;
+            _GroupsController = groupsController;
             InitializeComponent();
-            LoadData().ConfigureAwait(false);
-        }
+            this.Load += Client_Load;
 
+        }
+        private async void Client_Load(object sender, EventArgs e)
+        {
+            await LoadData().ConfigureAwait(false);
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -25,13 +31,17 @@ namespace PlayerUI
             TestEvolutiaWorker.Infraestructure.Entities.Client Client = await _ClientsController.Details(id);
             textBoxName.Text = Client.Name;
             textBoxGrade.Text = Client.Note == null ? "" : Client.Note.ToString();
+            cifBox.Text = Client.CIF;
+            gruposComboBox.SelectedValue = Client.IdGroup;
         }
 
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
+            int grupoId = (int)gruposComboBox.SelectedValue;
             string name = textBoxName.Text;
             string grade = textBoxGrade.Text;
-            TestEvolutiaWorker.Infraestructure.Entities.Client Client = new TestEvolutiaWorker.Infraestructure.Entities.Client() { Name = name, Note = grade };
+            string cif = cifBox.Text;
+            TestEvolutiaWorker.Infraestructure.Entities.Client Client = new TestEvolutiaWorker.Infraestructure.Entities.Client() { Name = name, Note = grade , IdGroup = grupoId , CIF = cif };
 
             await _ClientsController.Create(Client);
             await LoadData();
@@ -82,7 +92,15 @@ namespace PlayerUI
         {
             try
             {
-                // Usa ConfigureAwait para evitar volver al subproceso de la interfaz
+                var groups = await _GroupsController.GetGroupsAsync();
+
+                var groupList = groups.ToList();
+
+                groupList.Insert(0, new TestEvolutiaWorker.Infraestructure.Entities.Group { Name = "Selecciona una opción", Id = 0 });
+
+                gruposComboBox.DataSource = groupList;
+                gruposComboBox.DisplayMember = "Name";
+                gruposComboBox.ValueMember = "Id";
                 dataGridView1.DataSource = await _ClientsController.GetClientsAsync();
             }
             catch (Exception ex)
@@ -95,6 +113,11 @@ namespace PlayerUI
         {
             textBoxName.Text = "";
             textBoxGrade.Text = "";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

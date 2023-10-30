@@ -10,9 +10,12 @@ namespace PlayerUI
         {
             _ContractsController = ContractsController;
             InitializeComponent();
-            LoadData().ConfigureAwait(false);
+            this.Load += Contract_Load;
         }
-
+        private async void Contract_Load(object sender, EventArgs e)
+        {
+            await LoadData().ConfigureAwait(false);
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();

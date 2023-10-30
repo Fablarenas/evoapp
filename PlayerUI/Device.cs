@@ -10,9 +10,12 @@ namespace PlayerUI
         {
             _groupsController = groupsController;
             InitializeComponent();
-            LoadData().ConfigureAwait(false);
+            this.Load += Device_Load;
         }
-
+        private async void Device_Load(object sender, EventArgs e)
+        {
+            await LoadData().ConfigureAwait(false);
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();

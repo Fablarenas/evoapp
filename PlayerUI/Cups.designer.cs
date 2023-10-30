@@ -42,6 +42,16 @@ namespace PlayerUI
             textBoxGrade = new TextBox();
             labelName = new Label();
             labelNote = new Label();
+            label1 = new Label();
+            textBox1 = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            textBox5 = new TextBox();
+            checkBox1 = new CheckBox();
+            checkBox2 = new CheckBox();
+            checkBox3 = new CheckBox();
+            checkBox4 = new CheckBox();
+            checkBox5 = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -95,7 +105,7 @@ namespace PlayerUI
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 164);
+            dataGridView1.Location = new Point(12, 175);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(431, 255);
             dataGridView1.TabIndex = 10;
@@ -160,18 +170,108 @@ namespace PlayerUI
             labelName.AutoSize = true;
             labelName.Location = new Point(31, 74);
             labelName.Name = "labelName";
-            labelName.Size = new Size(47, 13);
+            labelName.Size = new Size(31, 13);
             labelName.TabIndex = 15;
-            labelName.Text = "Nombre";
+            labelName.Text = "cups";
             // 
             // labelNote
             // 
             labelNote.AutoSize = true;
-            labelNote.Location = new Point(37, 101);
+            labelNote.Location = new Point(12, 101);
             labelNote.Name = "labelNote";
-            labelNote.Size = new Size(31, 13);
+            labelNote.Size = new Size(62, 13);
             labelNote.TabIndex = 16;
-            labelNote.Text = "Nota";
+            labelNote.Text = "Suministro";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 128);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 13);
+            label1.TabIndex = 18;
+            label1.Text = "Prioridad";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(84, 125);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 21);
+            textBox1.TabIndex = 17;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(207, 128);
+            label4.Name = "label4";
+            label4.Size = new Size(0, 13);
+            label4.TabIndex = 24;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(190, 78);
+            label5.Name = "label5";
+            label5.Size = new Size(31, 13);
+            label5.TabIndex = 30;
+            label5.Text = "Nota";
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(227, 74);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(100, 21);
+            textBox5.TabIndex = 29;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(350, 47);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(49, 17);
+            checkBox1.TabIndex = 31;
+            checkBox1.Text = "Auto";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new Point(350, 116);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new Size(108, 17);
+            checkBox2.TabIndex = 32;
+            checkBox2.Text = "Actividad Trama";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Location = new Point(350, 138);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new Size(112, 17);
+            checkBox3.TabIndex = 33;
+            checkBox3.Text = "Actividad Horaria";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Location = new Point(350, 70);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new Size(104, 17);
+            checkBox4.TabIndex = 34;
+            checkBox4.Text = "Actividad Diaria";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.Location = new Point(350, 93);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new Size(93, 17);
+            checkBox5.TabIndex = 35;
+            checkBox5.Text = "Actividad Log";
+            checkBox5.UseVisualStyleBackColor = true;
             // 
             // Cups
             // 
@@ -179,6 +279,16 @@ namespace PlayerUI
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(684, 431);
+            Controls.Add(checkBox5);
+            Controls.Add(checkBox4);
+            Controls.Add(checkBox3);
+            Controls.Add(checkBox2);
+            Controls.Add(checkBox1);
+            Controls.Add(label5);
+            Controls.Add(textBox5);
+            Controls.Add(label4);
+            Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(labelNote);
             Controls.Add(labelName);
             Controls.Add(textBoxGrade);
@@ -208,5 +318,15 @@ namespace PlayerUI
         private TextBox textBoxGrade;
         private Label labelName;
         private Label labelNote;
+        private Label label1;
+        private TextBox textBox1;
+        private Label label4;
+        private Label label5;
+        private TextBox textBox5;
+        private CheckBox checkBox1;
+        private CheckBox checkBox2;
+        private CheckBox checkBox3;
+        private CheckBox checkBox4;
+        private CheckBox checkBox5;
     }
 }

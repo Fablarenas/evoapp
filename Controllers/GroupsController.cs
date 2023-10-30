@@ -13,7 +13,7 @@ namespace EvorodApp.Controllers
             _context = context;
         }
 
-        public async Task<IEnumerable<Group>> GetGroupsAsync()
+        public async Task<List<Group>> GetGroupsAsync()
         {
             try
             {

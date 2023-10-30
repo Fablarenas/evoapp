@@ -42,6 +42,10 @@ namespace PlayerUI
             textBoxGrade = new TextBox();
             labelName = new Label();
             labelNote = new Label();
+            label1 = new Label();
+            cifBox = new TextBox();
+            gruposComboBox = new ComboBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -173,12 +177,50 @@ namespace PlayerUI
             labelNote.TabIndex = 16;
             labelNote.Text = "Nota";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(45, 132);
+            label1.Name = "label1";
+            label1.Size = new Size(23, 13);
+            label1.TabIndex = 17;
+            label1.Text = "CIF";
+            label1.Click += label1_Click;
+            // 
+            // cifBox
+            // 
+            cifBox.Location = new Point(84, 129);
+            cifBox.Name = "cifBox";
+            cifBox.Size = new Size(100, 21);
+            cifBox.TabIndex = 18;
+            // 
+            // gruposComboBox
+            // 
+            gruposComboBox.FormattingEnabled = true;
+            gruposComboBox.Location = new Point(296, 98);
+            gruposComboBox.Name = "gruposComboBox";
+            gruposComboBox.Size = new Size(121, 21);
+            gruposComboBox.TabIndex = 19;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(241, 101);
+            label2.Name = "label2";
+            label2.Size = new Size(37, 13);
+            label2.TabIndex = 20;
+            label2.Text = "Grupo";
+            // 
             // Client
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(684, 431);
+            Controls.Add(label2);
+            Controls.Add(gruposComboBox);
+            Controls.Add(cifBox);
+            Controls.Add(label1);
             Controls.Add(labelNote);
             Controls.Add(labelName);
             Controls.Add(textBoxGrade);
@@ -208,5 +250,9 @@ namespace PlayerUI
         private TextBox textBoxGrade;
         private Label labelName;
         private Label labelNote;
+        private Label label1;
+        private TextBox cifBox;
+        private ComboBox gruposComboBox;
+        private Label label2;
     }
 }

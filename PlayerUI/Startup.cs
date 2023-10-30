@@ -18,19 +18,26 @@ public class Startup
             options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=EVOROD;User Id=sa;Password=12345;TrustServerCertificate=true;Encrypt=False;");
         });
 
-        services.AddScoped<ClientsController>();
-        services.AddScoped<GroupsController>();
+        services.AddTransient<ClientsController>();
+        services.AddTransient<GroupsController>();
+        services.AddTransient<ContractController>();
+        services.AddTransient<CupsController>();
+        services.AddTransient<SimController>();
+        services.AddTransient<UrmController>();
+        services.AddTransient<UmController>();
+        services.AddTransient<DeviceController>();
 
-        services.AddScoped<Form1>();
-        services.AddScoped<Group>();
-        services.AddScoped<Client>();
-        services.AddScoped<Cups>();
-        services.AddScoped<Contract>();
-        services.AddScoped<Cups>();
-        services.AddScoped<Sim>();
-        services.AddScoped<Device>();
-        services.AddScoped<Urm>();
-        services.AddScoped<Um>();
+
+        services.AddTransient<Form1>();
+        services.AddTransient<Group>();
+        services.AddTransient<Client>();
+        services.AddTransient<Cups>();
+        services.AddTransient<Contract>();
+        services.AddTransient<Cups>();
+        services.AddTransient<Sim>();
+        services.AddTransient<Device>();
+        services.AddTransient<Urm>();
+        services.AddTransient<Um>();
         // ... (otros registros)
 
         return services.BuildServiceProvider();

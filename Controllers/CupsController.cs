@@ -17,13 +17,21 @@ namespace EvorodApp.Controllers
             _context = context;
         }
 
-        public async Task<IEnumerable<Cups>> GetCupsAsync()
+        public async Task<IEnumerable<object>> GetCupsAsync()
         {
             try
             {
                 return await _context.Cups
-                                          .AsNoTracking()
-                                          .ToListAsync();
+                                     .Include(c => c.Client) // Asegúrese de que Group está correctamente configurado en su modelo
+                                     .Select(c => new
+                                     {
+                                         c.Id,
+                                         c.CupsCode,
+                                         c.Note,
+                                         ClientName = c.Client.Name // Asumiendo que la relación está correctamente configurada
+                                     })
+                                     .AsNoTracking()
+                                     .ToListAsync();
             }
             catch (Exception ex)
             {

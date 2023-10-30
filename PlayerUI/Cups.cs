@@ -5,14 +5,17 @@ namespace PlayerUI
 {
     public partial class Cups : Form
     {
-        private readonly GroupsController _groupsController;
-        public Cups(GroupsController groupsController)
+        private readonly CupsController _CupsController;
+        public Cups(CupsController CupsController)
         {
-            _groupsController = groupsController;
+            _CupsController = CupsController;
             InitializeComponent();
-            LoadData().ConfigureAwait(false);
+            this.Load += Cups_Load;
         }
-
+        private async void Cups_Load(object sender, EventArgs e)
+        {
+            await LoadData().ConfigureAwait(false);
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -22,18 +25,18 @@ namespace PlayerUI
         {
             int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
 
-            TestEvolutiaWorker.Infraestructure.Entities.Group group = await _groupsController.Details(id);
-            textBoxName.Text = group.Name;
-            textBoxGrade.Text = group.Note == null ? "" : group.Note.ToString();
+            TestEvolutiaWorker.Infraestructure.Entities.Cups Cups = await _CupsController.Details(id);
+            //textBoxName.Text = Cups.Name;
+            textBoxGrade.Text = Cups.Note == null ? "" : Cups.Note.ToString();
         }
 
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
             string name = textBoxName.Text;
             string grade = textBoxGrade.Text;
-            TestEvolutiaWorker.Infraestructure.Entities.Group group = new TestEvolutiaWorker.Infraestructure.Entities.Group() { Name = name, Note = grade };
+            TestEvolutiaWorker.Infraestructure.Entities.Cups Cups = new TestEvolutiaWorker.Infraestructure.Entities.Cups() { Note = grade };
 
-            await _groupsController.Create(group);
+            await _CupsController.Create(Cups);
             await LoadData();
             ClearInputs();
         }
@@ -46,9 +49,9 @@ namespace PlayerUI
                 string name = textBoxName.Text;
                 string grade = textBoxGrade.Text;
 
-                TestEvolutiaWorker.Infraestructure.Entities.Group group = new TestEvolutiaWorker.Infraestructure.Entities.Group() { Id = id, Name = name, Note = grade };
+                TestEvolutiaWorker.Infraestructure.Entities.Cups Cups = new TestEvolutiaWorker.Infraestructure.Entities.Cups() { Id = id, Note = grade };
 
-                bool result = await _groupsController.Edit(id, group);
+                bool result = await _CupsController.Edit(id, Cups);
 
                 if (result)
                 {
@@ -56,7 +59,7 @@ namespace PlayerUI
                 }
                 else
                 {
-                    MessageBox.Show("Failed to edit the group. The group might not exist.");
+                    MessageBox.Show("Failed to edit the Cups. The Cups might not exist.");
                 }
             }
             catch (Exception ex)
@@ -72,7 +75,7 @@ namespace PlayerUI
             DialogResult result = MessageBox.Show("¿Está seguro de que desea eliminar el grupo seleccionado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                await _groupsController.DeleteConfirmed(id);
+                await _CupsController.DeleteConfirmed(id);
                 await LoadData();
                 ClearInputs();
             }
@@ -83,7 +86,7 @@ namespace PlayerUI
             try
             {
                 // Usa ConfigureAwait para evitar volver al subproceso de la interfaz
-                dataGridView1.DataSource = await _groupsController.GetGroupsAsync();
+                dataGridView1.DataSource = await _CupsController.GetCupsAsync();
             }
             catch (Exception ex)
             {
