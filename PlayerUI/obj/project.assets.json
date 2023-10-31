@@ -3661,24 +3661,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FabianArenas\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\sollutia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\PlayerUI\\PlayerUI.csproj",
+      "projectUniqueName": "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj",
       "projectName": "PlayerUI",
-      "projectPath": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\PlayerUI\\PlayerUI.csproj",
-      "packagesPath": "C:\\Users\\FabianArenas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\PlayerUI\\obj\\",
+      "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj",
+      "packagesPath": "C:\\Users\\sollutia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\FabianArenas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\sollutia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3692,8 +3687,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\Controllers\\Controllers.csproj": {
-              "projectPath": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\Controllers\\Controllers.csproj"
+            "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj": {
+              "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj"
             }
           }
         }
@@ -3732,7 +3727,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

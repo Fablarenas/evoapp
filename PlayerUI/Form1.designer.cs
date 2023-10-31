@@ -42,9 +42,20 @@
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
             panelChildForm = new Panel();
+            BarraTitulo = new Panel();
+            btnMinimizar = new PictureBox();
+            btnMaximizar = new PictureBox();
+            btnRestaurar = new PictureBox();
+            btnCerrar = new PictureBox();
             panelSideMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelChildForm.SuspendLayout();
+            BarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMaximizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnRestaurar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
             SuspendLayout();
             // 
             // panelSideMenu
@@ -64,7 +75,7 @@
             panelSideMenu.Dock = DockStyle.Left;
             panelSideMenu.Location = new Point(0, 0);
             panelSideMenu.Name = "panelSideMenu";
-            panelSideMenu.Size = new Size(250, 561);
+            panelSideMenu.Size = new Size(250, 650);
             panelSideMenu.TabIndex = 0;
             // 
             // btnUm
@@ -231,7 +242,7 @@
             btnExit.ForeColor = Color.Silver;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExit.Location = new Point(0, 516);
+            btnExit.Location = new Point(0, 605);
             btnExit.Name = "btnExit";
             btnExit.Padding = new Padding(5, 0, 0, 0);
             btnExit.Size = new Size(250, 45);
@@ -267,7 +278,7 @@
             // 
             // panelLogo
             // 
-            panelLogo.BackColor = Color.FromArgb(86, 130, 112);
+            panelLogo.BackColor = Color.White;
             panelLogo.Controls.Add(pictureBox1);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
@@ -277,11 +288,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(36, 15);
+            pictureBox1.Location = new Point(0, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(159, 60);
+            pictureBox1.Size = new Size(250, 91);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -289,22 +299,89 @@
             // panelChildForm
             // 
             panelChildForm.BackColor = Color.White;
+            panelChildForm.Controls.Add(BarraTitulo);
             panelChildForm.Dock = DockStyle.Fill;
             panelChildForm.Location = new Point(250, 0);
             panelChildForm.Name = "panelChildForm";
-            panelChildForm.Size = new Size(684, 561);
+            panelChildForm.Size = new Size(700, 650);
             panelChildForm.TabIndex = 2;
             panelChildForm.Paint += panelChildForm_Paint;
+            // 
+            // BarraTitulo
+            // 
+            BarraTitulo.BackColor = Color.Gray;
+            BarraTitulo.Controls.Add(btnMinimizar);
+            BarraTitulo.Controls.Add(btnMaximizar);
+            BarraTitulo.Controls.Add(btnRestaurar);
+            BarraTitulo.Controls.Add(btnCerrar);
+            BarraTitulo.Dock = DockStyle.Top;
+            BarraTitulo.Location = new Point(0, 0);
+            BarraTitulo.Name = "BarraTitulo";
+            BarraTitulo.Size = new Size(700, 30);
+            BarraTitulo.TabIndex = 1;
+            // 
+            // btnMinimizar
+            // 
+            btnMinimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinimizar.Cursor = Cursors.Hand;
+            btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
+            btnMinimizar.Location = new Point(612, 2);
+            btnMinimizar.Name = "btnMinimizar";
+            btnMinimizar.Size = new Size(25, 25);
+            btnMinimizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnMinimizar.TabIndex = 1;
+            btnMinimizar.TabStop = false;
+            btnMinimizar.Click += btnMinimizar_Click;
+            // 
+            // btnMaximizar
+            // 
+            btnMaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMaximizar.Cursor = Cursors.Hand;
+            btnMaximizar.Image = (Image)resources.GetObject("btnMaximizar.Image");
+            btnMaximizar.Location = new Point(643, 2);
+            btnMaximizar.Name = "btnMaximizar";
+            btnMaximizar.Size = new Size(25, 25);
+            btnMaximizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnMaximizar.TabIndex = 2;
+            btnMaximizar.TabStop = false;
+            btnMaximizar.Click += btnMaximizar_Click;
+            // 
+            // btnRestaurar
+            // 
+            btnRestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnRestaurar.Cursor = Cursors.Hand;
+            btnRestaurar.Image = (Image)resources.GetObject("btnRestaurar.Image");
+            btnRestaurar.Location = new Point(642, 1);
+            btnRestaurar.Name = "btnRestaurar";
+            btnRestaurar.Size = new Size(25, 25);
+            btnRestaurar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnRestaurar.TabIndex = 3;
+            btnRestaurar.TabStop = false;
+            btnRestaurar.Click += btnRestaurar_Click;
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCerrar.Cursor = Cursors.Hand;
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(673, 3);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(25, 25);
+            btnCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnCerrar.TabIndex = 0;
+            btnCerrar.TabStop = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(934, 561);
+            ClientSize = new Size(950, 650);
             Controls.Add(panelChildForm);
             Controls.Add(panelSideMenu);
             Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MinimumSize = new Size(950, 600);
@@ -313,6 +390,12 @@
             panelSideMenu.ResumeLayout(false);
             panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelChildForm.ResumeLayout(false);
+            BarraTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMaximizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnRestaurar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
             ResumeLayout(false);
         }
 
@@ -331,6 +414,11 @@
         private Button btnCups;
         private Button btnClientes;
         private Button btnUm;
+        private PictureBox btnCerrar;
+        private Panel BarraTitulo;
+        private PictureBox btnMinimizar;
+        private PictureBox btnRestaurar;
+        private PictureBox btnMaximizar;
     }
 }
 

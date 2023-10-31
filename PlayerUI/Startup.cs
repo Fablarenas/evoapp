@@ -15,7 +15,7 @@ public class Startup
 
         services.AddDbContext<DataContext>(options =>
         {
-            options.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=EVOROD;User Id=sa;Password=12345;TrustServerCertificate=true;Encrypt=False;");
+            options.UseSqlServer("Server=localhost;Database=EVOROD;User Id=sa;Password=Fabian123*;TrustServerCertificate=true;Encrypt=False;");
         });
 
         services.AddTransient<ClientsController>();

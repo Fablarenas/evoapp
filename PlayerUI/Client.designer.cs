@@ -67,11 +67,11 @@ namespace PlayerUI
             // Grupos
             // 
             Grupos.AutoSize = true;
-            Grupos.Font = new Font("Roboto", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Grupos.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             Grupos.ForeColor = SystemColors.ControlDarkDark;
             Grupos.Location = new Point(31, 21);
             Grupos.Name = "Grupos";
-            Grupos.Size = new Size(99, 33);
+            Grupos.Size = new Size(99, 31);
             Grupos.TabIndex = 8;
             Grupos.Text = "Cliente";
             // 
@@ -83,15 +83,15 @@ namespace PlayerUI
             buttonAdd.FlatAppearance.BorderColor = Color.FromArgb(0, 123, 255);
             buttonAdd.FlatAppearance.BorderSize = 0;
             buttonAdd.FlatStyle = FlatStyle.Flat;
-            buttonAdd.Font = new Font("Roboto", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAdd.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             buttonAdd.ForeColor = Color.White;
             buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
             buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdd.Location = new Point(524, 151);
+            buttonAdd.Location = new Point(575, 162);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(126, 37);
             buttonAdd.TabIndex = 9;
-            buttonAdd.Text = "Nuevo Grupo";
+            buttonAdd.Text = "Nuevo Cliente\r\n";
             buttonAdd.TextAlign = ContentAlignment.MiddleRight;
             buttonAdd.UseVisualStyleBackColor = false;
             buttonAdd.Click += buttonAdd_Click;
@@ -99,9 +99,9 @@ namespace PlayerUI
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 164);
+            dataGridView1.Location = new Point(12, 162);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(431, 255);
+            dataGridView1.Size = new Size(544, 255);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -113,11 +113,11 @@ namespace PlayerUI
             buttonEdit.FlatAppearance.BorderColor = Color.FromArgb(0, 123, 255);
             buttonEdit.FlatAppearance.BorderSize = 0;
             buttonEdit.FlatStyle = FlatStyle.Flat;
-            buttonEdit.Font = new Font("Roboto", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonEdit.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             buttonEdit.ForeColor = Color.White;
             buttonEdit.Image = (Image)resources.GetObject("buttonEdit.Image");
             buttonEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEdit.Location = new Point(524, 205);
+            buttonEdit.Location = new Point(575, 215);
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(126, 37);
             buttonEdit.TabIndex = 11;
@@ -133,11 +133,11 @@ namespace PlayerUI
             buttonDelete.FlatAppearance.BorderColor = Color.FromArgb(0, 123, 255);
             buttonDelete.FlatAppearance.BorderSize = 0;
             buttonDelete.FlatStyle = FlatStyle.Flat;
-            buttonDelete.Font = new Font("Roboto", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonDelete.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             buttonDelete.ForeColor = Color.White;
             buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDelete.Location = new Point(524, 260);
+            buttonDelete.Location = new Point(575, 272);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(126, 37);
             buttonDelete.TabIndex = 12;
@@ -149,14 +149,14 @@ namespace PlayerUI
             // 
             textBoxName.Location = new Point(84, 71);
             textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(100, 21);
+            textBoxName.Size = new Size(100, 20);
             textBoxName.TabIndex = 13;
             // 
             // textBoxGrade
             // 
             textBoxGrade.Location = new Point(84, 98);
             textBoxGrade.Name = "textBoxGrade";
-            textBoxGrade.Size = new Size(100, 21);
+            textBoxGrade.Size = new Size(100, 20);
             textBoxGrade.TabIndex = 14;
             // 
             // labelName
@@ -164,7 +164,7 @@ namespace PlayerUI
             labelName.AutoSize = true;
             labelName.Location = new Point(31, 74);
             labelName.Name = "labelName";
-            labelName.Size = new Size(47, 13);
+            labelName.Size = new Size(44, 13);
             labelName.TabIndex = 15;
             labelName.Text = "Nombre";
             // 
@@ -173,7 +173,7 @@ namespace PlayerUI
             labelNote.AutoSize = true;
             labelNote.Location = new Point(37, 101);
             labelNote.Name = "labelNote";
-            labelNote.Size = new Size(31, 13);
+            labelNote.Size = new Size(30, 13);
             labelNote.TabIndex = 16;
             labelNote.Text = "Nota";
             // 
@@ -191,7 +191,7 @@ namespace PlayerUI
             // 
             cifBox.Location = new Point(84, 129);
             cifBox.Name = "cifBox";
-            cifBox.Size = new Size(100, 21);
+            cifBox.Size = new Size(100, 20);
             cifBox.TabIndex = 18;
             // 
             // gruposComboBox
@@ -207,7 +207,7 @@ namespace PlayerUI
             label2.AutoSize = true;
             label2.Location = new Point(241, 101);
             label2.Name = "label2";
-            label2.Size = new Size(37, 13);
+            label2.Size = new Size(36, 13);
             label2.TabIndex = 20;
             label2.Text = "Grupo";
             // 
@@ -216,7 +216,7 @@ namespace PlayerUI
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(684, 431);
+            ClientSize = new Size(706, 431);
             Controls.Add(label2);
             Controls.Add(gruposComboBox);
             Controls.Add(cifBox);
@@ -231,7 +231,7 @@ namespace PlayerUI
             Controls.Add(buttonAdd);
             Controls.Add(Grupos);
             Controls.Add(button5);
-            Font = new Font("Roboto", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "Client";
             Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

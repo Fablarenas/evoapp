@@ -3799,24 +3799,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FabianArenas\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\sollutia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\sollutia\\Source\\Repos\\evoapp\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\Models\\Models.csproj",
-      "packagesPath": "C:\\Users\\FabianArenas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FabianArenas\\source\\repos\\Modern-Media-Player-UI-C-Sharp\\Models\\obj\\",
+      "projectPath": "C:\\Users\\sollutia\\Source\\Repos\\evoapp\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\sollutia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sollutia\\Source\\Repos\\evoapp\\Models\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\FabianArenas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\sollutia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3887,7 +3882,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -41,7 +41,7 @@ namespace PlayerUI
             string name = textBoxName.Text;
             string grade = textBoxGrade.Text;
             string cif = cifBox.Text;
-            TestEvolutiaWorker.Infraestructure.Entities.Client Client = new TestEvolutiaWorker.Infraestructure.Entities.Client() { Name = name, Note = grade , IdGroup = grupoId , CIF = cif };
+            TestEvolutiaWorker.Infraestructure.Entities.Client Client = new TestEvolutiaWorker.Infraestructure.Entities.Client() { Name = name, Note = grade, IdGroup = grupoId, CIF = cif };
 
             await _ClientsController.Create(Client);
             await LoadData();
