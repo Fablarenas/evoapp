@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj": {}
+    "C:\\Users\\titop\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj": {
+    "C:\\Users\\titop\\source\\repos\\evoapp\\Controllers\\Controllers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj",
+        "projectUniqueName": "C:\\Users\\titop\\source\\repos\\evoapp\\Controllers\\Controllers.csproj",
         "projectName": "Controllers",
-        "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj",
-        "packagesPath": "C:\\Users\\sollutia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\obj\\",
+        "projectPath": "C:\\Users\\titop\\source\\repos\\evoapp\\Controllers\\Controllers.csproj",
+        "packagesPath": "C:\\Users\\titop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\titop\\source\\repos\\evoapp\\Controllers\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sollutia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\titop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\sollutia\\source\\repos\\evoapp\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Models\\Models.csproj"
+              "C:\\Users\\titop\\source\\repos\\evoapp\\Models\\Models.csproj": {
+                "projectPath": "C:\\Users\\titop\\source\\repos\\evoapp\\Models\\Models.csproj"
               }
             }
           }
@@ -54,26 +58,44 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\sollutia\\source\\repos\\evoapp\\Models\\Models.csproj": {
+    "C:\\Users\\titop\\source\\repos\\evoapp\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\titop\\source\\repos\\evoapp\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Models\\Models.csproj",
-        "packagesPath": "C:\\Users\\sollutia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sollutia\\Source\\Repos\\evoapp\\Models\\obj\\",
+        "projectPath": "C:\\Users\\titop\\source\\repos\\evoapp\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\titop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\titop\\source\\repos\\evoapp\\Models\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sollutia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\titop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -139,26 +161,44 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj": {
+    "C:\\Users\\titop\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj",
+        "projectUniqueName": "C:\\Users\\titop\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj",
         "projectName": "PlayerUI",
-        "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj",
-        "packagesPath": "C:\\Users\\sollutia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\PlayerUI\\obj\\",
+        "projectPath": "C:\\Users\\titop\\source\\repos\\evoapp\\PlayerUI\\PlayerUI.csproj",
+        "packagesPath": "C:\\Users\\titop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\titop\\source\\repos\\evoapp\\PlayerUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\sollutia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\titop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -172,8 +212,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj": {
-                "projectPath": "C:\\Users\\sollutia\\source\\repos\\evoapp\\Controllers\\Controllers.csproj"
+              "C:\\Users\\titop\\source\\repos\\evoapp\\Controllers\\Controllers.csproj": {
+                "projectPath": "C:\\Users\\titop\\source\\repos\\evoapp\\Controllers\\Controllers.csproj"
               }
             }
           }
@@ -204,6 +244,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.24, 6.0.24]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -212,7 +270,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.310\\RuntimeIdentifierGraph.json"
         }
       }
     }

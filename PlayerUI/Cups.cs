@@ -24,16 +24,22 @@ namespace PlayerUI
         private async void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
-
             TestEvolutiaWorker.Infraestructure.Entities.Cups Cups = await _CupsController.Details(id);
-            //textBoxName.Text = Cups.Name;
-            textBoxGrade.Text = Cups.Note == null ? "" : Cups.Note.ToString();
+            textBoxCup.Text = Cups.CupsCode;
+            textBoxSuministro.Text = Cups.Supply ?? "";
+            textBoxPrioridad.Text = Cups.Priority.ToString();
+            boxAuto.Checked = Cups.Auto == 1;
+            boxActTrama.Checked = Cups.FrameActv == 1;
+            boxActHoraria.Checked = Cups.HourlyActv == 1;
+            boxActDiaria.Checked = Cups.DailyActv == 1;
+            boxActLog.Checked = Cups.LogActv == 1;
+            textBoxNote.Text = Cups.Note ?? "";
         }
 
         private async void buttonAdd_Click(object sender, EventArgs e)
         {
-            string name = textBoxName.Text;
-            string grade = textBoxGrade.Text;
+            string name = textBoxCup.Text;
+            string grade = textBoxSuministro.Text;
             TestEvolutiaWorker.Infraestructure.Entities.Cups Cups = new TestEvolutiaWorker.Infraestructure.Entities.Cups() { Note = grade };
 
             await _CupsController.Create(Cups);
@@ -46,8 +52,8 @@ namespace PlayerUI
             try
             {
                 int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells["id"].Value);
-                string name = textBoxName.Text;
-                string grade = textBoxGrade.Text;
+                string name = textBoxCup.Text;
+                string grade = textBoxSuministro.Text;
 
                 TestEvolutiaWorker.Infraestructure.Entities.Cups Cups = new TestEvolutiaWorker.Infraestructure.Entities.Cups() { Id = id, Note = grade };
 
@@ -96,8 +102,8 @@ namespace PlayerUI
 
         private void ClearInputs()
         {
-            textBoxName.Text = "";
-            textBoxGrade.Text = "";
+            textBoxCup.Text = "";
+            textBoxSuministro.Text = "";
         }
     }
 }

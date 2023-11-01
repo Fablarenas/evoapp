@@ -22,7 +22,7 @@ namespace PlayerUI
             var serviceProvider = new Startup().ConfigureServices();
             using (var scope = serviceProvider.CreateScope())
             {
-                var mainForm = scope.ServiceProvider.GetRequiredService<Form1>();
+                var mainForm = scope.ServiceProvider.GetRequiredService<MainForm>();
 
                 Application.Run(mainForm);
             }

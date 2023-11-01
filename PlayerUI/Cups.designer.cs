@@ -38,20 +38,20 @@ namespace PlayerUI
             dataGridView1 = new DataGridView();
             buttonEdit = new Button();
             buttonDelete = new Button();
-            textBoxName = new TextBox();
-            textBoxGrade = new TextBox();
+            textBoxCup = new TextBox();
+            textBoxSuministro = new TextBox();
             labelName = new Label();
             labelNote = new Label();
             label1 = new Label();
-            textBox1 = new TextBox();
+            textBoxPrioridad = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            textBox5 = new TextBox();
-            checkBox1 = new CheckBox();
-            checkBox2 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox5 = new CheckBox();
+            textBoxNote = new TextBox();
+            boxAuto = new CheckBox();
+            boxActTrama = new CheckBox();
+            boxActHoraria = new CheckBox();
+            boxActDiaria = new CheckBox();
+            boxActLog = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -75,7 +75,7 @@ namespace PlayerUI
             Grupos.AutoSize = true;
             Grupos.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             Grupos.ForeColor = SystemColors.ControlDarkDark;
-            Grupos.Location = new Point(31, 21);
+            Grupos.Location = new Point(12, 18);
             Grupos.Name = "Grupos";
             Grupos.Size = new Size(78, 31);
             Grupos.TabIndex = 8;
@@ -93,7 +93,7 @@ namespace PlayerUI
             buttonAdd.ForeColor = Color.White;
             buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
             buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdd.Location = new Point(524, 151);
+            buttonAdd.Location = new Point(593, 227);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(126, 37);
             buttonAdd.TabIndex = 9;
@@ -105,9 +105,9 @@ namespace PlayerUI
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 175);
+            dataGridView1.Location = new Point(12, 211);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(431, 255);
+            dataGridView1.Size = new Size(523, 219);
             dataGridView1.TabIndex = 10;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
@@ -123,7 +123,7 @@ namespace PlayerUI
             buttonEdit.ForeColor = Color.White;
             buttonEdit.Image = (Image)resources.GetObject("buttonEdit.Image");
             buttonEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEdit.Location = new Point(524, 205);
+            buttonEdit.Location = new Point(593, 296);
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(126, 37);
             buttonEdit.TabIndex = 11;
@@ -143,7 +143,7 @@ namespace PlayerUI
             buttonDelete.ForeColor = Color.White;
             buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDelete.Location = new Point(524, 260);
+            buttonDelete.Location = new Point(593, 361);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(126, 37);
             buttonDelete.TabIndex = 12;
@@ -151,24 +151,24 @@ namespace PlayerUI
             buttonDelete.UseVisualStyleBackColor = false;
             buttonDelete.Click += buttonDelete_Click;
             // 
-            // textBoxName
+            // textBoxCup
             // 
-            textBoxName.Location = new Point(84, 71);
-            textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(100, 20);
-            textBoxName.TabIndex = 13;
+            textBoxCup.Location = new Point(112, 69);
+            textBoxCup.Name = "textBoxCup";
+            textBoxCup.Size = new Size(100, 20);
+            textBoxCup.TabIndex = 13;
             // 
-            // textBoxGrade
+            // textBoxSuministro
             // 
-            textBoxGrade.Location = new Point(84, 98);
-            textBoxGrade.Name = "textBoxGrade";
-            textBoxGrade.Size = new Size(100, 20);
-            textBoxGrade.TabIndex = 14;
+            textBoxSuministro.Location = new Point(112, 96);
+            textBoxSuministro.Name = "textBoxSuministro";
+            textBoxSuministro.Size = new Size(100, 20);
+            textBoxSuministro.TabIndex = 14;
             // 
             // labelName
             // 
             labelName.AutoSize = true;
-            labelName.Location = new Point(31, 74);
+            labelName.Location = new Point(59, 72);
             labelName.Name = "labelName";
             labelName.Size = new Size(30, 13);
             labelName.TabIndex = 15;
@@ -177,7 +177,7 @@ namespace PlayerUI
             // labelNote
             // 
             labelNote.AutoSize = true;
-            labelNote.Location = new Point(12, 101);
+            labelNote.Location = new Point(40, 99);
             labelNote.Name = "labelNote";
             labelNote.Size = new Size(55, 13);
             labelNote.TabIndex = 16;
@@ -186,23 +186,23 @@ namespace PlayerUI
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 128);
+            label1.Location = new Point(40, 126);
             label1.Name = "label1";
             label1.Size = new Size(48, 13);
             label1.TabIndex = 18;
             label1.Text = "Prioridad";
             // 
-            // textBox1
+            // textBoxPrioridad
             // 
-            textBox1.Location = new Point(84, 125);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 20);
-            textBox1.TabIndex = 17;
+            textBoxPrioridad.Location = new Point(112, 123);
+            textBoxPrioridad.Name = "textBoxPrioridad";
+            textBoxPrioridad.Size = new Size(100, 20);
+            textBoxPrioridad.TabIndex = 17;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(207, 128);
+            label4.Location = new Point(235, 126);
             label4.Name = "label4";
             label4.Size = new Size(0, 13);
             label4.TabIndex = 24;
@@ -210,89 +210,89 @@ namespace PlayerUI
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(190, 78);
+            label5.Location = new Point(74, 153);
             label5.Name = "label5";
             label5.Size = new Size(30, 13);
             label5.TabIndex = 30;
             label5.Text = "Nota";
             // 
-            // textBox5
+            // textBoxNote
             // 
-            textBox5.Location = new Point(226, 74);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(102, 20);
-            textBox5.TabIndex = 29;
+            textBoxNote.Location = new Point(110, 149);
+            textBoxNote.Name = "textBoxNote";
+            textBoxNote.Size = new Size(102, 20);
+            textBoxNote.TabIndex = 29;
             // 
-            // checkBox1
+            // boxAuto
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(350, 47);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(48, 17);
-            checkBox1.TabIndex = 31;
-            checkBox1.Text = "Auto";
-            checkBox1.UseVisualStyleBackColor = true;
+            boxAuto.AutoSize = true;
+            boxAuto.Location = new Point(428, 78);
+            boxAuto.Name = "boxAuto";
+            boxAuto.Size = new Size(48, 17);
+            boxAuto.TabIndex = 31;
+            boxAuto.Text = "Auto";
+            boxAuto.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // boxActTrama
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(350, 116);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(103, 17);
-            checkBox2.TabIndex = 32;
-            checkBox2.Text = "Actividad Trama";
-            checkBox2.UseVisualStyleBackColor = true;
+            boxActTrama.AutoSize = true;
+            boxActTrama.Location = new Point(428, 147);
+            boxActTrama.Name = "boxActTrama";
+            boxActTrama.Size = new Size(103, 17);
+            boxActTrama.TabIndex = 32;
+            boxActTrama.Text = "Actividad Trama";
+            boxActTrama.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // boxActHoraria
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(350, 138);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(107, 17);
-            checkBox3.TabIndex = 33;
-            checkBox3.Text = "Actividad Horaria";
-            checkBox3.UseVisualStyleBackColor = true;
+            boxActHoraria.AutoSize = true;
+            boxActHoraria.Location = new Point(428, 169);
+            boxActHoraria.Name = "boxActHoraria";
+            boxActHoraria.Size = new Size(107, 17);
+            boxActHoraria.TabIndex = 33;
+            boxActHoraria.Text = "Actividad Horaria";
+            boxActHoraria.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // boxActDiaria
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(350, 70);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(100, 17);
-            checkBox4.TabIndex = 34;
-            checkBox4.Text = "Actividad Diaria";
-            checkBox4.UseVisualStyleBackColor = true;
+            boxActDiaria.AutoSize = true;
+            boxActDiaria.Location = new Point(428, 101);
+            boxActDiaria.Name = "boxActDiaria";
+            boxActDiaria.Size = new Size(100, 17);
+            boxActDiaria.TabIndex = 34;
+            boxActDiaria.Text = "Actividad Diaria";
+            boxActDiaria.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // boxActLog
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(350, 93);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(91, 17);
-            checkBox5.TabIndex = 35;
-            checkBox5.Text = "Actividad Log";
-            checkBox5.UseVisualStyleBackColor = true;
+            boxActLog.AutoSize = true;
+            boxActLog.Location = new Point(428, 124);
+            boxActLog.Name = "boxActLog";
+            boxActLog.Size = new Size(91, 17);
+            boxActLog.TabIndex = 35;
+            boxActLog.Text = "Actividad Log";
+            boxActLog.UseVisualStyleBackColor = true;
             // 
             // Cups
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(684, 431);
-            Controls.Add(checkBox5);
-            Controls.Add(checkBox4);
-            Controls.Add(checkBox3);
-            Controls.Add(checkBox2);
-            Controls.Add(checkBox1);
+            ClientSize = new Size(731, 436);
+            Controls.Add(boxActLog);
+            Controls.Add(boxActDiaria);
+            Controls.Add(boxActHoraria);
+            Controls.Add(boxActTrama);
+            Controls.Add(boxAuto);
             Controls.Add(label5);
-            Controls.Add(textBox5);
+            Controls.Add(textBoxNote);
             Controls.Add(label4);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(textBoxPrioridad);
             Controls.Add(labelNote);
             Controls.Add(labelName);
-            Controls.Add(textBoxGrade);
-            Controls.Add(textBoxName);
+            Controls.Add(textBoxSuministro);
+            Controls.Add(textBoxCup);
             Controls.Add(buttonDelete);
             Controls.Add(buttonEdit);
             Controls.Add(dataGridView1);
@@ -314,19 +314,19 @@ namespace PlayerUI
         private DataGridView dataGridView1;
         private Button buttonEdit;
         private Button buttonDelete;
-        private TextBox textBoxName;
-        private TextBox textBoxGrade;
+        private TextBox textBoxCup;
+        private TextBox textBoxSuministro;
         private Label labelName;
         private Label labelNote;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxPrioridad;
         private Label label4;
         private Label label5;
-        private TextBox textBox5;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
-        private CheckBox checkBox5;
+        private TextBox textBoxNote;
+        private CheckBox boxAuto;
+        private CheckBox boxActTrama;
+        private CheckBox boxActHoraria;
+        private CheckBox boxActDiaria;
+        private CheckBox boxActLog;
     }
 }

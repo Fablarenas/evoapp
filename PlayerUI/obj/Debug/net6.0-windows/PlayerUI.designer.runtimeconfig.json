@@ -12,8 +12,9 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\sollutia\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\sollutia\\.nuget\\packages"
+      "C:\\Users\\titop\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\titop\\.nuget\\packages",
+      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
     ],
     "configProperties": {
       "System.Reflection.NullabilityInfoContext.IsSupported": true,

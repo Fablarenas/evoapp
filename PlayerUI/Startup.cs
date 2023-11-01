@@ -15,7 +15,7 @@ public class Startup
 
         services.AddDbContext<DataContext>(options =>
         {
-            options.UseSqlServer("Server=localhost;Database=EVOROD;User Id=sa;Password=Fabian123*;TrustServerCertificate=true;Encrypt=False;");
+            options.UseSqlServer("Server=PORTAPOL\\SQLEXPRESS;Database=EVOROD;User Id=sa;Password=pauli2165;TrustServerCertificate=true;Encrypt=False;");
         });
 
         services.AddTransient<ClientsController>();
@@ -28,7 +28,7 @@ public class Startup
         services.AddTransient<DeviceController>();
 
 
-        services.AddTransient<Form1>();
+        services.AddTransient<MainForm>();
         services.AddTransient<Group>();
         services.AddTransient<Client>();
         services.AddTransient<Cups>();
