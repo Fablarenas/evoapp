@@ -32,7 +32,6 @@ namespace PlayerUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cups));
-            button5 = new Button();
             Grupos = new Label();
             buttonAdd = new Button();
             dataGridView1 = new DataGridView();
@@ -55,27 +54,12 @@ namespace PlayerUI
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // button5
-            // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 42, 83);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.ForeColor = Color.LightGray;
-            button5.Location = new Point(0, 0);
-            button5.Name = "button5";
-            button5.Size = new Size(25, 25);
-            button5.TabIndex = 7;
-            button5.Text = "X";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // Grupos
             // 
             Grupos.AutoSize = true;
             Grupos.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
             Grupos.ForeColor = SystemColors.ControlDarkDark;
-            Grupos.Location = new Point(12, 18);
+            Grupos.Location = new Point(31, 21);
             Grupos.Name = "Grupos";
             Grupos.Size = new Size(78, 31);
             Grupos.TabIndex = 8;
@@ -83,7 +67,7 @@ namespace PlayerUI
             // 
             // buttonAdd
             // 
-            buttonAdd.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonAdd.Anchor = AnchorStyles.None;
             buttonAdd.AutoSize = true;
             buttonAdd.BackColor = Color.FromArgb(0, 123, 255);
             buttonAdd.FlatAppearance.BorderColor = Color.FromArgb(0, 123, 255);
@@ -93,7 +77,7 @@ namespace PlayerUI
             buttonAdd.ForeColor = Color.White;
             buttonAdd.Image = (Image)resources.GetObject("buttonAdd.Image");
             buttonAdd.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonAdd.Location = new Point(593, 227);
+            buttonAdd.Location = new Point(551, 211);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(126, 37);
             buttonAdd.TabIndex = 9;
@@ -113,7 +97,7 @@ namespace PlayerUI
             // 
             // buttonEdit
             // 
-            buttonEdit.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonEdit.Anchor = AnchorStyles.None;
             buttonEdit.AutoSize = true;
             buttonEdit.BackColor = Color.FromArgb(0, 192, 0);
             buttonEdit.FlatAppearance.BorderColor = Color.FromArgb(0, 123, 255);
@@ -123,7 +107,7 @@ namespace PlayerUI
             buttonEdit.ForeColor = Color.White;
             buttonEdit.Image = (Image)resources.GetObject("buttonEdit.Image");
             buttonEdit.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonEdit.Location = new Point(593, 296);
+            buttonEdit.Location = new Point(551, 280);
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(126, 37);
             buttonEdit.TabIndex = 11;
@@ -133,7 +117,7 @@ namespace PlayerUI
             // 
             // buttonDelete
             // 
-            buttonDelete.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonDelete.Anchor = AnchorStyles.None;
             buttonDelete.AutoSize = true;
             buttonDelete.BackColor = Color.Red;
             buttonDelete.FlatAppearance.BorderColor = Color.FromArgb(0, 123, 255);
@@ -143,7 +127,7 @@ namespace PlayerUI
             buttonDelete.ForeColor = Color.White;
             buttonDelete.Image = (Image)resources.GetObject("buttonDelete.Image");
             buttonDelete.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonDelete.Location = new Point(593, 361);
+            buttonDelete.Location = new Point(551, 345);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(126, 37);
             buttonDelete.TabIndex = 12;
@@ -265,8 +249,9 @@ namespace PlayerUI
             // 
             // boxActLog
             // 
+            boxActLog.Anchor = AnchorStyles.None;
             boxActLog.AutoSize = true;
-            boxActLog.Location = new Point(428, 124);
+            boxActLog.Location = new Point(428, 122);
             boxActLog.Name = "boxActLog";
             boxActLog.Size = new Size(91, 17);
             boxActLog.TabIndex = 35;
@@ -298,7 +283,6 @@ namespace PlayerUI
             Controls.Add(dataGridView1);
             Controls.Add(buttonAdd);
             Controls.Add(Grupos);
-            Controls.Add(button5);
             Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "Cups";
             Text = "Form2";
@@ -308,7 +292,6 @@ namespace PlayerUI
         }
 
         #endregion
-        private Button button5;
         private Label Grupos;
         private Button buttonAdd;
         private DataGridView dataGridView1;

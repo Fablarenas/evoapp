@@ -32,7 +32,6 @@ namespace PlayerUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Client));
-            button5 = new Button();
             Grupos = new Label();
             buttonAdd = new Button();
             dataGridView1 = new DataGridView();
@@ -48,21 +47,6 @@ namespace PlayerUI
             label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // button5
-            // 
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatAppearance.MouseOverBackColor = Color.FromArgb(235, 42, 83);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.ForeColor = Color.LightGray;
-            button5.Location = new Point(0, 0);
-            button5.Name = "button5";
-            button5.Size = new Size(25, 25);
-            button5.TabIndex = 7;
-            button5.Text = "X";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
             // 
             // Grupos
             // 
@@ -230,7 +214,6 @@ namespace PlayerUI
             Controls.Add(dataGridView1);
             Controls.Add(buttonAdd);
             Controls.Add(Grupos);
-            Controls.Add(button5);
             Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
             Name = "Client";
             Text = "Form2";
@@ -240,7 +223,6 @@ namespace PlayerUI
         }
 
         #endregion
-        private Button button5;
         private Label Grupos;
         private Button buttonAdd;
         private DataGridView dataGridView1;
